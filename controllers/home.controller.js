@@ -1,15 +1,20 @@
 const homeController = {
 
     index: (req, res) => {
-        res.render('home/index.mst');
+        const today = new Date().toLocaleDateString('fr-be'); 
+
+        const viewData = {
+            today
+        };
+        res.render('home/index', viewData);
     },
 
     about: (req, res) => {
-        res.sendStatus(501);
+        res.render('home/about');
     },
 
     protected: (req, res) => {
-        res.sendStatus(501);
+        res.render('home/protected');
     }
 
 };

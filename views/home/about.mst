@@ -15,9 +15,9 @@
             <li><a href="/logout">Logout</a></li>
         </ul>
     </nav>
-
-    <h1>Page d'accueil</h1>
-
-    <p>Nous sommes le {{ today }}</p>
+    
+    <h1>A Propos</h1>
+    
+    <p>Démo de l'utilisation des sessions en express</p>
 </body>
 </html>

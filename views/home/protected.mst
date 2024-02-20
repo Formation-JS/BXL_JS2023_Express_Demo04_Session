@@ -15,9 +15,9 @@
             <li><a href="/logout">Logout</a></li>
         </ul>
     </nav>
+    
+    <h1>Page protégé</h1>
 
-    <h1>Page d'accueil</h1>
-
-    <p>Nous sommes le {{ today }}</p>
+    <p>Cette page necessite d'être connecté !</p>
 </body>
 </html>

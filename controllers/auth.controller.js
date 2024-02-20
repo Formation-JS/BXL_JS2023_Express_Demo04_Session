@@ -9,14 +9,34 @@ const authController = {
     },
 
     login: (req, res) => {
-        res.sendStatus(501);
+        res.render('auth/login')
     },
     login_POST: (req, res) => {
-        res.sendStatus(501);
+        // Récuperation des données du body
+        const { usename, password } = req.body;
+
+        // Test (basique) des credentials 
+        if(usename?.toLowerCase() !== 'zaza' || password !== 'Test1234=') {
+            
+            const viewData = {
+                errorMessage : 'Les credentials sont invalides'
+            };
+            res.render('auth/login', viewData);
+            return
+        }
+
+        // TODO Gestion de la session
+
+        // Redirection de l'utilisateur
+        res.redirect('/');
     },
 
     logout: (req, res) => {
-        res.sendStatus(501);
+        
+        // TODO Clear la session
+
+        // Redirection de l'utilisateur
+        res.redirect('/');
     }
 };
 

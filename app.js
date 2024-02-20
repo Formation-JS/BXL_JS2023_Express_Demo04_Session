@@ -17,7 +17,8 @@ app.engine('mst', mustacheExpress());
 app.set('view engine', 'mst');
 app.set('views', './views');
 
-// - Middleware
+// - Middlewares
+app.use(express.urlencoded({ extended: true }));
 
 // - Ajout du Routing
 app.use(homeRouter);

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 04</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/protected">Protected</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1>Page de connexion</h1>
+
+    <form method='POST'>
+        <div>
+            <label for="input-username">Pseudo : </label>
+            <input id="input-username" name="username" type="text" required>
+        </div>
+        <div>
+            <label for="input-password">Password : </label>
+            <input id="input-password" name="password" type="password" required>
+        </div>
+        <div>
+            <button type="submit">Se connecter...</button>
+        </div>
+        <div>
+            <p class="error">{{ errorMessage }}</p>
+        </div>
+    </form>
+
+</body>
+</html>
