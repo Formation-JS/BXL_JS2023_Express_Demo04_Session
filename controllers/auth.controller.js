@@ -25,7 +25,12 @@ const authController = {
             return
         }
 
-        // TODO Gestion de la session
+        // Gestion de la session
+        req.session.user = {
+            name: username,
+            role: 'Admin'
+        };
+        req.session.isLog = true;
 
         // Redirection de l'utilisateur
         res.redirect('/');
@@ -33,7 +38,8 @@ const authController = {
 
     logout: (req, res) => {
         
-        // TODO Clear la session
+        // Clear la session
+        req.session.destroy();
 
         // Redirection de l'utilisateur
         res.redirect('/');

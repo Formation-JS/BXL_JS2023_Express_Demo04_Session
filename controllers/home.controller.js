@@ -1,10 +1,14 @@
+
 const homeController = {
 
     index: (req, res) => {
         const today = new Date().toLocaleDateString('fr-be'); 
 
+        console.log(req.session);
+
         const viewData = {
-            today
+            today,
+            username: req.session.user?.name
         };
         res.render('home/index', viewData);
     },

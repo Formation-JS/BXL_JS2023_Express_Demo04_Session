@@ -11,8 +11,12 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/protected">Protected</a></li>
-            <li><a href="/login">Login</a></li>
+            {{#session.isLog}}
             <li><a href="/logout">Logout</a></li>
+            {{/session.isLog}}
+            {{^session.isLog}}
+            <li><a href="/login">Login</a></li>
+            {{/session.isLog}}
         </ul>
     </nav>
     
