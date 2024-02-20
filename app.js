@@ -2,6 +2,7 @@ require('dotenv').config();
 
 // Imports
 const express = require('express');
+const mustacheExpress = require('mustache-express');
 const homeRouter = require('./routes/home.router');
 const authRouter = require('./routes/auth.router');
 
@@ -10,6 +11,11 @@ const { PORT, NODE_ENV } = process.env;
 
 // Initialisation du serveur Web
 const app = express();
+
+// - Config du moteur de vue
+app.engine('mst', mustacheExpress());
+app.set('view engine', 'mst');
+app.set('views', './views');
 
 // - Middleware
 
