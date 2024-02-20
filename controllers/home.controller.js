@@ -17,7 +17,23 @@ const homeController = {
         res.render('home/about');
     },
 
+    error: (req, res) => {
+        res.render('home/error');
+    },
+
     protected: (req, res) => {
+        // Test si l'utilisateur est connecté
+        
+        if(!req.session.isLog) {
+            res.redirect('/login');
+            return;
+        }
+
+        if(req.session.user.role !== 'Admin') {
+            res.redirect('/error');
+            return;
+        }
+
         res.render('home/protected');
     }
 

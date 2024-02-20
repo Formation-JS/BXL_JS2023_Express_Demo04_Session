@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 04</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/protected">Protected</a></li>
+            {{#session.isLog}}
+            <li><a href="/logout">Logout</a></li>
+            {{/session.isLog}}
+            {{^session.isLog}}
+            <li><a href="/login">Login</a></li>
+            {{/session.isLog}}
+        </ul>
+    </nav>
+    
+    <h1>Erreur</h1>
+    
+    <p>Une erreur s'est produite (っ °Д °;)っ </p>
+</body>
+</html>

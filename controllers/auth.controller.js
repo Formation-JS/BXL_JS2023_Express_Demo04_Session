@@ -16,7 +16,7 @@ const authController = {
         const { username, password } = req.body;
 
         // Test (basique) des credentials 
-        if(username?.toLowerCase() !== 'zaza' || password !== 'Test1234=') {
+        if(!['zaza', 'balthy'].find(name => name === username?.toLowerCase())  || password !== 'Test1234=') {
             
             const viewData = {
                 errorMessage : 'Les credentials sont invalides'
@@ -28,7 +28,7 @@ const authController = {
         // Gestion de la session
         req.session.user = {
             name: username,
-            role: 'Admin'
+            role: username.toLowerCase() === 'balthy' ? 'Admin' : 'User'
         };
         req.session.isLog = true;
 
