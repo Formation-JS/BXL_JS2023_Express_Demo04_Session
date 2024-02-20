@@ -6,6 +6,7 @@ const mustacheExpress = require('mustache-express');
 const session = require('express-session');
 const homeRouter = require('./routes/home.router');
 const authRouter = require('./routes/auth.router');
+const renderSessionMiddleware = require('./middlewares/render-session.middleware');
 
 // Récuperation des données du fichier « .env »
 const { PORT, NODE_ENV, SESSION_SECRET } = process.env;
@@ -25,25 +26,7 @@ app.use(session({
     saveUninitialized: true,
     secret: SESSION_SECRET,
 }));
-
-app.use((req, res, next) => {
-
-    res.originalRender = res.render;
-
-    res.render = (view, data, callback) => {
-
-        let dataWithSession;
-        if(data) {
-            dataWithSession = { session: req.session, ...data };
-        }
-        else {
-            dataWithSession = { session: req.session }
-        }
-
-        res.originalRender(view, dataWithSession, callback)
-    };
-    next();
-})
+app.use(renderSessionMiddleware());
 
 // - Ajout du Routing
 app.use(homeRouter);
