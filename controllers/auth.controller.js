@@ -13,10 +13,10 @@ const authController = {
     },
     login_POST: (req, res) => {
         // Récuperation des données du body
-        const { usename, password } = req.body;
+        const { username, password } = req.body;
 
         // Test (basique) des credentials 
-        if(usename?.toLowerCase() !== 'zaza' || password !== 'Test1234=') {
+        if(username?.toLowerCase() !== 'zaza' || password !== 'Test1234=') {
             
             const viewData = {
                 errorMessage : 'Les credentials sont invalides'
