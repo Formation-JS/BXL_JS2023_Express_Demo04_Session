@@ -1,4 +1,3 @@
-
 const homeController = {
 
     index: (req, res) => {
